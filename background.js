@@ -64,9 +64,9 @@ chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
 				document.querySelector("#_fid_86").value = storage.ups;
 				document.querySelector("#_fid_88").value = storage.fedex;
 				document.querySelector("#_fid_87").value = storage.usps;
-				document.querySelector("#iup_ctrl_90 > div > div.inputs > input").value = storage.maniName;
 				document.querySelector("#_fid_91").value = `${date} ${time}`;
 				document.querySelector("#_fid_92").checked = true;
+				document.querySelector("#iup_ctrl_90 > div > div.inputs > input").select();
 			}
 
 			let completeBtn = document.createElement("a");
