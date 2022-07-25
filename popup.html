@@ -1,0 +1,80 @@
+<!-- popup.html -->
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+	<style type="text/css">
+		body, html {
+			width: 600px;
+			padding: 8px 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container text-center">
+		<div class="row">
+			<div class="col-sm">
+				<h6>Order Completion Settings</h4>
+
+				<label for="nameIn">Name: </label>
+				<div class="input-group mb-3">
+					<input type="text" name="name" id="nameIn" class="form-control">
+					<div class="input-group-append">
+						<button class="btn btn-outline-primary" type="button" id="setOrderName">Set</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm">
+				<h6>Manifest Completion Settings</h4>
+
+				<label for="maniNameIn">Name: </label>
+				<div class="input-group mb-3">
+					<input type="text" name="name" id="maniNameIn" class="form-control">
+					<div class="input-group-append">
+						<button class="btn btn-outline-primary" type="button" id="setManiName">Set</button>
+					</div>
+				</div>
+
+				<label for="truckNameIn">Truck List Name: </label>
+				<div class="input-group mb-3">
+					<input type="text" name="name" id="truckNameIn" class="form-control">
+					<div class="input-group-append">
+						<button class="btn btn-outline-primary" type="button" id="setTruckName">Set</button>
+					</div>
+				</div>
+
+				<label for="upsIn">UPS: </label>	
+				<div class="input-group mb-3">
+					<input type="text" name="ups" id="upsIn" class="form-control">
+					<div class="input-group-append">
+						<button class="btn btn-outline-primary" type="button" id="setUPS">Set</button>
+					</div>
+				</div>
+
+
+				<label for="upsIn">USPS: </label>	
+				<div class="input-group mb-3">
+					<input type="text" name="ups" id="uspsIn" class="form-control">
+					<div class="input-group-append">
+						<button class="btn btn-outline-primary" type="button" id="setUSPS">Set</button>
+					</div>
+				</div>
+
+				<label for="upsIn">FEDEX US: </label>	
+				<div class="input-group mb-3">
+					<input type="text" name="ups" id="fedexIn" class="form-control">
+					<div class="input-group-append">
+						<button class="btn btn-outline-primary" type="button" id="setFEDEX">Set</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script src="popup.js"></script>
+</html>
