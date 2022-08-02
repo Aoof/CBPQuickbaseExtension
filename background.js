@@ -107,12 +107,22 @@ function injectedScript(storage)
 		function CopyUSPS(e) {
 			e.preventDefault();
 			let copyString = "";
-			copyString += document.querySelector("#tdf_6").innerText + "\t"; 	// Customer Name
-			copyString += document.querySelector("#tdf_4").innerText + "\t\t"; 	// Manifest Number and skipping shipments #
-			copyString += document.querySelector("#tdf_18").innerText + "\t";	// Bag
-			copyString += storage.truckName; 									// Trucklist Receiver 
+			copyString += document.querySelector("#tdf_6").innerText + "\t";
+			copyString += document.querySelector("#tdf_4").innerText + "\t\t"; 
+			copyString += document.querySelector("#tdf_18").innerText + "\t";	
+			copyString += storage.truckName; 									
 
 			navigator.clipboard.writeText(copyString);
+		}
+	} else if (uniqueName == "Orders")
+	{
+		let verified = document.querySelector("#tdf_3")
+		let verifiedBox = verified.querySelector("input")
+		if (verifiedBox && verifiedBox.disabled) {
+			verified.style.border = "1px solid red";
+			verified.style.fontWeight = "bold";
+			verified.style.color = "red";
+			verified.style.fontSize = "16px";
 		}
 	}
 

@@ -3,11 +3,9 @@ async function load() {
 		ups 		= document.querySelector("#upsIn"),
 		usps 		= document.querySelector("#uspsIn"),
 		fedex 		= document.querySelector("#fedexIn"),
-		maniName	= document.querySelector("#maniNameIn"),
 		truckName	= document.querySelector("#truckNameIn");
 
 	let orderNameBtn = document.querySelector("#setOrderName"),
-		maniNameBtn = document.querySelector("#setManiName"),
 		truckNameBtn = document.querySelector("#setTruckName"),
 		UpsBtn = document.querySelector("#setUPS"),
 		UspsBtn = document.querySelector("#setUSPS"),
@@ -18,11 +16,9 @@ async function load() {
 		ups.value  				= store["ups"];
 		usps.value				= store["usps"];
 		fedex.value				= store["fedex"];
-		maniName.value 			= store["maniName"];
 		truckName.value 		= store["truckName"];
 
 		orderNameBtn.addEventListener("click", e => SetStorage("orderName", orderName.value));
-		maniNameBtn .addEventListener("click", e => SetStorage("maniName", maniName.value));
 		truckNameBtn.addEventListener("click", e => SetStorage("truckName", truckName.value));
 		UpsBtn 		.addEventListener("click", e => SetStorage("ups", ups.value));
 		UspsBtn 	.addEventListener("click", e => SetStorage("usps", usps.value));
@@ -39,10 +35,6 @@ function SetStorage(key, val)
 		case "orderName":
 			chrome.storage.sync.set({orderName: val});
 			alt = "Order Name";
-			break;
-		case "maniName":
-			chrome.storage.sync.set({maniName: val});
-			alt = "Manifest Name";
 			break;
 		case "truckName":
 			chrome.storage.sync.set({truckName: val});
@@ -61,12 +53,12 @@ function SetStorage(key, val)
 			alt = "Fedex";
 			break;
 	}
-	let alert = document.createElement("div");
+	let _alert = document.createElement("div");
 
-	alert.innerText = `${alt} was modified to ${val}`;
-	setTimeout(e => alert.remove(), 3000);
+	_alert.innerText = `${alt} was modified to ${val}`;
+	setTimeout(e => _alert.remove(), 3000);
 
-	document.querySelector(".container").prepend(alert);
+	document.querySelector(".container").prepend(_alert);
 	
 }
 
