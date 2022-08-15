@@ -3,13 +3,15 @@ async function load() {
 		ups 		= document.querySelector("#upsIn"),
 		usps 		= document.querySelector("#uspsIn"),
 		fedex 		= document.querySelector("#fedexIn"),
-		truckName	= document.querySelector("#truckNameIn");
+		truckName	= document.querySelector("#truckNameIn"),
+		maniLuid	= document.querySelector("#luid");
 
-	let orderNameBtn = document.querySelector("#setOrderName"),
-		truckNameBtn = document.querySelector("#setTruckName"),
-		UpsBtn = document.querySelector("#setUPS"),
-		UspsBtn = document.querySelector("#setUSPS"),
-		FedexBtn = document.querySelector("#setFEDEX");
+	let orderNameBtn 	= document.querySelector("#setOrderName"),
+		truckNameBtn 	= document.querySelector("#setTruckName"),
+		UpsBtn 			= document.querySelector("#setUPS"),
+		UspsBtn 		= document.querySelector("#setUSPS"),
+		FedexBtn 		= document.querySelector("#setFEDEX"),
+		maniLuidBtn 	= document.querySelector("#setLuid");
 
 	chrome.storage.sync.get(store => {
 		orderName.value 		= store["orderName"];
@@ -17,12 +19,14 @@ async function load() {
 		usps.value				= store["usps"];
 		fedex.value				= store["fedex"];
 		truckName.value 		= store["truckName"];
+		maniLuid.value			= store["luid"];
 
 		orderNameBtn.addEventListener("click", e => SetStorage("orderName", orderName.value));
 		truckNameBtn.addEventListener("click", e => SetStorage("truckName", truckName.value));
 		UpsBtn 		.addEventListener("click", e => SetStorage("ups", ups.value));
 		UspsBtn 	.addEventListener("click", e => SetStorage("usps", usps.value));
 		FedexBtn 	.addEventListener("click", e => SetStorage("fedex", fedex.value));
+		maniLuidBtn .addEventListener("click", e => SetStorage("luid", maniLuid.value));
 	})
 }
 
@@ -51,6 +55,10 @@ function SetStorage(key, val)
 		case "fedex":
 			chrome.storage.sync.set({fedex: val});
 			alt = "Fedex";
+			break;
+		case "luid":
+			chrome.storage.sync.set({luid: val});
+			alt = "LUID";
 			break;
 	}
 	let _alert = document.createElement("div");

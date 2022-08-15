@@ -4,10 +4,10 @@ let orderName = "",
 	ups 	  = "M UPS ",
 	usps 	  = "USPS 2",
 	fedex	  = "FEDEX 1",
-	maniName  = "",
-	truckName = "";
+	truckName = "",
+	luid      = "";
 
-chrome.runtime.onInstalled.addListener(function() { chrome.storage.sync.set({ orderName, ups, usps, fedex, maniName, truckName }); });
+chrome.runtime.onInstalled.addListener(function() { chrome.storage.sync.set({ orderName, ups, usps, fedex, luid, truckName }); });
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) { if (changeInfo.status == 'complete') getTabAndExecuteScript(tab.id); })
 chrome.tabs.onActivated.addListener(function (activeInfo) {	getTabAndExecuteScript(activeInfo.tabId); })
 
@@ -65,7 +65,8 @@ function injectedScript(storage)
 			document.querySelector("#_fid_87").value = storage.usps;
 			document.querySelector("#_fid_91").value = `${date} ${time}`;
 			document.querySelector("#_fid_92").checked = true;
-			document.querySelector("#iup_ctrl_90 > div > div.inputs > input").select();
+			document.querySelector("#_fid_90").value = storage.luid;
+			document.querySelector("#_fid_86").select();
 		}
 
 		let completeBtn = document.createElement("a");
