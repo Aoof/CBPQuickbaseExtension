@@ -66,6 +66,7 @@ function injectedScript(storage)
 			document.querySelector("#_fid_91").value = `${date} ${time}`;
 			document.querySelector("#_fid_92").checked = true;
 			document.querySelector("#_fid_90").value = storage.luid;
+			document.querySelector("#iup_ctrl_90 > div > div.inputs > input").value = "FILLED BY CBP EXTENSION";
 			document.querySelector("#_fid_86").select();
 		}
 
@@ -124,6 +125,19 @@ function injectedScript(storage)
 			verified.style.fontWeight = "bold";
 			verified.style.color = "red";
 			verified.style.fontSize = "16px";
+		}
+
+		let chrgElem = document.querySelector("#tdf_37");
+
+		let charge = JSON.parse(chrgElem.innerText);
+		let payment = JSON.parse(document.querySelector("#tdf_38").innerText);
+
+		if (charge > payment * 1.05)
+		{
+			chrgElem.style.border = "1px solid red";
+			chrgElem.style.fontWeight = "bold";
+			chrgElem.style.color = "red";
+			chrgElem.style.fontSize = "16px";
 		}
 	}
 
